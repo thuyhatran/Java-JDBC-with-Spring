@@ -6,6 +6,7 @@
 package com.mc;
 
 import com.mc.dao.JdbcDaoImpl;
+import com.mc.model.Circle;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -27,8 +28,11 @@ public class JDBCwithSpring {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");      
         JdbcDaoImpl circleDao = context.getBean("jdbcDaoImpl",JdbcDaoImpl.class);
-        System.out.println(circleDao.getCircle(1));
+        System.out.println(circleDao.getCircleForId(1));
         System.out.println("Circle count" + circleDao.getCircleCount());
+        System.out.println(circleDao.getCircleName(2));
+      //  circleDao.insertCircle(new Circle(5,"Fifth Circle"));
+        System.out.println(circleDao.getAllCircles());
         
     }
     
